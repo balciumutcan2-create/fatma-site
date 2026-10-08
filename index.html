@@ -23,6 +23,12 @@ html{
     scroll-behavior:smooth;
 }
 
+html,
+body{
+    width:100%;
+    max-width:100%;
+}
+
 body{
     background:#050505;
     color:#eee;
@@ -66,6 +72,8 @@ body::before{
 }
 
 section{
+    width:100%;
+    max-width:100%;
     padding:120px 24px;
 }
 
@@ -101,6 +109,7 @@ section{
 
 .intro-inner{
     width:min(900px,92vw);
+    max-width:100%;
 }
 
 .eyebrow{
@@ -163,6 +172,8 @@ nav{
     top:0;
     left:0;
     right:0;
+
+    width:100%;
 
     height:70px;
 
@@ -239,6 +250,7 @@ nav{
 
 .hero-content{
     width:min(900px,94vw);
+    max-width:100%;
 }
 
 .date{
@@ -283,6 +295,8 @@ nav{
 
     width:min(650px,95vw);
 
+    max-width:100%;
+
     margin:auto;
 }
 
@@ -293,6 +307,8 @@ nav{
 
     background:
         rgba(255,255,255,.015);
+
+    min-width:0;
 }
 
 .time-box strong{
@@ -329,6 +345,8 @@ nav{
     line-height:.9;
 
     text-align:center;
+
+    width:100%;
 }
 
 .section-subtitle{
@@ -367,11 +385,14 @@ nav{
     display:flex;
     justify-content:center;
 
+    width:100%;
+
     margin-top:65px;
 }
 
 .letter{
     width:min(800px,94vw);
+    max-width:100%;
 
     border:1px solid #32111d;
 
@@ -473,6 +494,7 @@ nav{
 
 .letter-paper{
     width:min(800px,94vw);
+    max-width:100%;
 
     max-height:85vh;
 
@@ -558,6 +580,8 @@ nav{
 
     width:min(1000px,94vw);
 
+    max-width:100%;
+
     margin:65px auto 0;
 }
 
@@ -603,6 +627,7 @@ nav{
 
 .timeline{
     width:min(850px,94vw);
+    max-width:100%;
 
     margin:70px auto 0;
 
@@ -679,6 +704,8 @@ nav{
     margin-top:70px;
 
     text-align:center;
+
+    width:100%;
 }
 
 .city{
@@ -708,6 +735,8 @@ nav{
     background:#4d1429;
 
     position:relative;
+
+    flex-shrink:0;
 }
 
 .distance-heart{
@@ -738,6 +767,7 @@ nav{
 
 .memory-container{
     width:min(850px,92vw);
+    max-width:100%;
 
     margin:
         80px auto 0;
@@ -750,6 +780,9 @@ nav{
 }
 
 .memory{
+    width:100%;
+    max-width:100%;
+
     opacity:0;
 
     transform:
@@ -768,8 +801,11 @@ nav{
 
 .memory-image{
     width:100%;
+    max-width:100%;
 
     display:block;
+
+    height:auto;
 
     max-height:750px;
 
@@ -800,6 +836,8 @@ nav{
 }
 
 .memory-info{
+    width:100%;
+
     padding:
         22px 5px 0;
 }
@@ -822,6 +860,8 @@ nav{
     line-height:1.4;
 
     color:#ddd;
+
+    overflow-wrap:anywhere;
 }
 
 .memory-divider{
@@ -841,6 +881,7 @@ nav{
 
 .gift-message{
     width:min(850px,92vw);
+    max-width:100%;
 
     margin:
         65px auto 0;
@@ -937,6 +978,7 @@ nav{
 }
 
 .final-inner{
+    width:100%;
     max-width:850px;
 }
 
@@ -1052,9 +1094,13 @@ nav{
 
     user-select:none;
 
+    -webkit-user-select:none;
+
     transform-origin:center center;
 
     will-change:transform;
+
+    pointer-events:auto;
 }
 
 .image-modal img:active{
@@ -1105,6 +1151,8 @@ nav{
     text-align:center;
 
     width:90%;
+
+    pointer-events:none;
 }
 
 
@@ -1114,65 +1162,364 @@ nav{
 
 @media(max-width:700px){
 
+    html,
+    body{
+        width:100%;
+        max-width:100%;
+        overflow-x:hidden;
+    }
+
     section{
-        padding:90px 18px;
+        width:100%;
+        max-width:100%;
+        padding:80px 16px;
+    }
+
+    nav{
+        width:100%;
+        padding:0 16px;
+    }
+
+    .logo{
+        font-size:28px;
+    }
+
+    .nav-right{
+        gap:6px;
+    }
+
+    .music-controls button{
+        width:32px;
+        height:32px;
+    }
+
+    .intro{
+        width:100%;
+        padding:20px;
+    }
+
+    .intro-inner{
+        width:100%;
+        max-width:100%;
     }
 
     .intro h1{
         font-size:
-            clamp(36px,9vw,65px);
+            clamp(34px,9vw,60px);
+
+        line-height:.95;
+
+        word-break:normal;
+    }
+
+    .intro p{
+        font-size:11px;
+        line-height:1.6;
+    }
+
+    .hero{
+        width:100%;
+
+        min-height:100svh;
+
+        padding:
+            100px 16px 60px;
+    }
+
+    .hero-content{
+        width:100%;
+        max-width:100%;
+    }
+
+    .date{
+        font-size:9px;
+        letter-spacing:3px;
+    }
+
+    .hero h2{
+        font-size:
+            clamp(48px,16vw,80px);
+
+        line-height:.85;
+    }
+
+    .hero-sub{
+        font-size:21px;
+
+        line-height:1.3;
+
+        margin:
+            25px 0 40px;
     }
 
     .timer{
+        width:100%;
+        max-width:100%;
+
         grid-template-columns:
             repeat(2,1fr);
+
+        gap:8px;
+    }
+
+    .time-box{
+        padding:14px 8px;
+
+        min-width:0;
+    }
+
+    .time-box strong{
+        font-size:32px;
+    }
+
+    .time-box span{
+        font-size:8px;
+    }
+
+    .section-title{
+        width:100%;
+
+        font-size:
+            clamp(42px,12vw,65px);
+
+        overflow-wrap:break-word;
+    }
+
+    .section-subtitle{
+        width:100%;
+        max-width:100%;
+
+        font-size:12px;
+
+        line-height:1.7;
+    }
+
+    .letter-wrap{
+        width:100%;
+    }
+
+    .letter{
+        width:100%;
+        max-width:100%;
+
+        padding:
+            24px 20px;
+    }
+
+    .letter-top{
+        margin-bottom:28px;
+    }
+
+    .letter h3{
+        font-size:30px;
+    }
+
+    .letter p{
+        font-size:17px;
+
+        line-height:1.8;
     }
 
     .reasons{
+        width:100%;
+        max-width:100%;
+
         grid-template-columns:1fr;
+
+        gap:12px;
+    }
+
+    .reason{
+        min-height:auto;
+
+        padding:24px;
+    }
+
+    .reason h3{
+        font-size:26px;
+    }
+
+    .timeline{
+        width:calc(100% - 8px);
+        max-width:100%;
+
+        padding-left:25px;
+
+        margin-left:4px;
+    }
+
+    .timeline-item::before{
+        left:-30px;
+    }
+
+    .timeline h3{
+        font-size:25px;
     }
 
     .distance{
+        width:100%;
+
         flex-direction:column;
 
-        gap:40px;
+        gap:30px;
     }
 
     .distance-line{
         width:1px;
 
-        height:100px;
+        height:80px;
     }
 
-    .letter{
-        padding:25px;
+    .city{
+        font-size:30px;
     }
 
-    .letter p{
-        font-size:17px;
+    .memories{
+        padding-top:100px;
+        padding-bottom:100px;
     }
 
     .memory-container{
-        gap:70px;
+        width:100%;
+        max-width:100%;
 
-        margin-top:60px;
+        margin-top:55px;
+
+        gap:65px;
     }
 
-    .memory-caption{
-        font-size:21px;
+    .memory{
+        width:100%;
+        max-width:100%;
     }
 
     .memory-image{
-        max-height:600px;
+        width:100%;
+        max-width:100%;
+
+        height:auto;
+
+        max-height:none;
+
+        object-fit:contain;
+    }
+
+    .memory-info{
+        width:100%;
+
+        padding:
+            18px 2px 0;
+    }
+
+    .memory-caption{
+        font-size:20px;
+
+        line-height:1.45;
+
+        overflow-wrap:anywhere;
+    }
+
+    .gift-message{
+        width:100%;
+        max-width:100%;
+
+        padding:
+            40px 22px;
+    }
+
+    .gift-message p{
+        font-size:25px;
+    }
+
+    .final{
+        width:100%;
+
+        min-height:75svh;
+
+        padding:
+            80px 20px;
+    }
+
+    .final-inner{
+        width:100%;
+        max-width:100%;
+    }
+
+    .final h2{
+        font-size:
+            clamp(55px,17vw,90px);
+    }
+
+    .final p{
+        font-size:12px;
+    }
+
+    .letter-modal{
+        padding:15px;
+    }
+
+    .letter-paper{
+        width:100%;
+        max-width:100%;
+
+        max-height:88svh;
+
+        padding:
+            45px 22px 30px;
+    }
+
+    .letter-paper h2{
+        font-size:38px;
+
+        line-height:1;
+
+        padding-right:30px;
+    }
+
+    .letter-paper p{
+        font-size:19px;
+
+        line-height:1.7;
+    }
+
+    .image-modal{
+        padding:15px;
+    }
+
+    .image-modal img{
+        max-width:100%;
+
+        max-height:82svh;
+    }
+
+    .image-close{
+        top:12px;
+        right:12px;
+
+        width:42px;
+        height:42px;
+
+        font-size:27px;
+    }
+
+    .modal-help{
+        bottom:10px;
+
+        width:94%;
+
+        font-size:8px;
+
+        line-height:1.5;
     }
 
     .music-name{
         display:none;
     }
 
-    .modal-help{
-        font-size:8px;
+    .footer{
+        padding:25px 15px;
     }
+
 }
 
 </style>
@@ -1694,7 +2041,6 @@ nav{
     </div>
 
 </section>
-
 
 
 <!-- =========================
@@ -2253,7 +2599,6 @@ document
     );
 
 
-
 /* =========================
    IMAGE LIGHTBOX
 ========================= */
@@ -2281,6 +2626,16 @@ let pinchStartDistance = 0;
 let pinchStartScale = 1;
 
 
+/* YENİ:
+   Tek parmakla sürükleme
+*/
+
+let lastX = 0;
+let lastY = 0;
+
+let isDragging = false;
+
+
 function applyTransform(){
 
     modalImage.style.transform =
@@ -2297,6 +2652,10 @@ function openImageModal(src){
 
     panX = 0;
     panY = 0;
+
+    pointers.clear();
+
+    pinchStartDistance = 0;
 
     applyTransform();
 
@@ -2322,6 +2681,11 @@ function closeImageModal(){
     modalImage.src = "";
 
     pointers.clear();
+
+    scale = 1;
+
+    panX = 0;
+    panY = 0;
 
 }
 
@@ -2360,7 +2724,9 @@ document.addEventListener(
 );
 
 
-/* Mouse wheel zoom */
+/* =========================
+   MOUSE WHEEL ZOOM
+========================= */
 
 modalImage.addEventListener(
     "wheel",
@@ -2398,7 +2764,9 @@ modalImage.addEventListener(
 );
 
 
-/* Touch / pointer zoom */
+/* =========================
+   TOUCH / POINTER
+========================= */
 
 modalImage.addEventListener(
     "pointerdown",
@@ -2417,17 +2785,42 @@ modalImage.addEventListener(
         );
 
 
+        /* Tek parmak */
+
+        if(
+            pointers.size === 1
+        ){
+
+            lastX =
+                event.clientX;
+
+            lastY =
+                event.clientY;
+
+            isDragging =
+                scale > 1;
+
+        }
+
+
+        /* İki parmak */
+
         if(
             pointers.size === 2
         ){
+
+            isDragging = false;
 
             const points =
                 [...pointers.values()];
 
             pinchStartDistance =
                 Math.hypot(
-                    points[0].x - points[1].x,
-                    points[0].y - points[1].y
+                    points[0].x -
+                    points[1].x,
+
+                    points[0].y -
+                    points[1].y
                 );
 
             pinchStartScale =
@@ -2454,6 +2847,12 @@ modalImage.addEventListener(
         }
 
 
+        const old =
+            pointers.get(
+                event.pointerId
+            );
+
+
         pointers.set(
             event.pointerId,
             {
@@ -2462,6 +2861,34 @@ modalImage.addEventListener(
             }
         );
 
+
+        /* =====================
+           TEK PARMAK SÜRÜKLEME
+        ===================== */
+
+        if(
+            pointers.size === 1 &&
+            scale > 1
+        ){
+
+            panX +=
+                event.clientX -
+                old.x;
+
+            panY +=
+                event.clientY -
+                old.y;
+
+            applyTransform();
+
+            return;
+
+        }
+
+
+        /* =====================
+           İKİ PARMAK ZOOM
+        ===================== */
 
         if(
             pointers.size === 2
@@ -2472,8 +2899,11 @@ modalImage.addEventListener(
 
             const distance =
                 Math.hypot(
-                    points[0].x - points[1].x,
-                    points[0].y - points[1].y
+                    points[0].x -
+                    points[1].x,
+
+                    points[0].y -
+                    points[1].y
                 );
 
 
@@ -2497,7 +2927,9 @@ modalImage.addEventListener(
             }
 
 
-            if(scale === 1){
+            if(
+                scale === 1
+            ){
 
                 panX = 0;
                 panY = 0;
@@ -2512,17 +2944,31 @@ modalImage.addEventListener(
 );
 
 
+/* =========================
+   POINTER CLEAR
+========================= */
+
 function clearPointer(event){
 
     pointers.delete(
         event.pointerId
     );
 
+
     if(
         pointers.size < 2
     ){
 
         pinchStartDistance = 0;
+
+    }
+
+
+    if(
+        pointers.size === 0
+    ){
+
+        isDragging = false;
 
     }
 
@@ -2539,8 +2985,25 @@ modalImage.addEventListener(
     clearPointer
 );
 
+modalImage.addEventListener(
+    "pointerleave",
+    event=>{
 
-/* Double click zoom */
+        if(
+            event.pointerType === "mouse"
+        ){
+
+            clearPointer(event);
+
+        }
+
+    }
+);
+
+
+/* =========================
+   DOUBLE CLICK / TAP ZOOM
+========================= */
 
 modalImage.addEventListener(
     "dblclick",
@@ -2551,7 +3014,9 @@ modalImage.addEventListener(
             ? 2.5
             : 1;
 
-        if(scale === 1){
+        if(
+            scale === 1
+        ){
 
             panX = 0;
             panY = 0;
@@ -2564,7 +3029,9 @@ modalImage.addEventListener(
 );
 
 
-/* ESC */
+/* =========================
+   ESC
+========================= */
 
 document.addEventListener(
     "keydown",
