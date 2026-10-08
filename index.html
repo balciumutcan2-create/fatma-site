@@ -1,0 +1,2813 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Fatma ❤️</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#050505;
+    color:#eee;
+    font-family:'Montserrat',sans-serif;
+    overflow-x:hidden;
+}
+
+body.no-scroll{
+    overflow:hidden;
+}
+
+button{
+    font-family:inherit;
+}
+
+canvas#particles{
+    position:fixed;
+    inset:0;
+    z-index:-2;
+    pointer-events:none;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-1;
+
+    background:
+    radial-gradient(
+        circle at 50% 20%,
+        rgba(120,0,35,.14),
+        transparent 35%
+    ),
+    radial-gradient(
+        circle at 80% 70%,
+        rgba(80,0,30,.1),
+        transparent 30%
+    );
+}
+
+section{
+    padding:120px 24px;
+}
+
+
+/* =========================
+   INTRO
+========================= */
+
+.intro{
+    position:fixed;
+    inset:0;
+
+    background:#030303;
+
+    z-index:1000;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    transition:
+        opacity .8s,
+        visibility .8s;
+}
+
+.intro.hide{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+}
+
+.intro-inner{
+    width:min(900px,92vw);
+}
+
+.eyebrow{
+    font-size:11px;
+    letter-spacing:5px;
+    color:#9a244d;
+    margin-bottom:25px;
+}
+
+.intro h1{
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:
+        clamp(42px,7vw,92px);
+
+    font-weight:500;
+
+    line-height:.9;
+}
+
+.intro p{
+    color:#888;
+    margin:30px 0;
+
+    font-size:13px;
+    letter-spacing:2px;
+}
+
+.enter-btn,
+.main-btn{
+    border:1px solid #64122f;
+
+    background:transparent;
+
+    color:#eee;
+
+    padding:14px 30px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    letter-spacing:2px;
+}
+
+.enter-btn:hover,
+.main-btn:hover{
+    background:#64122f;
+    transform:translateY(-2px);
+}
+
+
+/* =========================
+   NAV
+========================= */
+
+nav{
+    position:fixed;
+
+    top:0;
+    left:0;
+    right:0;
+
+    height:70px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 5vw;
+
+    background:rgba(3,3,3,.65);
+
+    backdrop-filter:blur(14px);
+
+    z-index:100;
+
+    border-bottom:
+        1px solid rgba(255,255,255,.04);
+}
+
+.logo{
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:32px;
+
+    color:#b70b43;
+}
+
+.nav-right{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.music-name{
+    font-size:10px;
+    color:#888;
+    letter-spacing:1px;
+}
+
+.music-controls{
+    display:flex;
+    gap:5px;
+}
+
+.music-controls button{
+    background:none;
+
+    border:1px solid #33101c;
+
+    color:#ddd;
+
+    width:34px;
+    height:34px;
+
+    cursor:pointer;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    padding-top:100px;
+}
+
+.hero-content{
+    width:min(900px,94vw);
+}
+
+.date{
+    font-size:11px;
+
+    letter-spacing:5px;
+
+    color:#8d0030;
+
+    margin-bottom:25px;
+}
+
+.hero h2{
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:
+        clamp(55px,11vw,145px);
+
+    font-weight:500;
+
+    line-height:.78;
+}
+
+.hero-sub{
+    font-family:'Cormorant Garamond',serif;
+
+    color:#aaa;
+
+    font-size:26px;
+
+    margin:
+        28px 0 50px;
+}
+
+.timer{
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:10px;
+
+    width:min(650px,95vw);
+
+    margin:auto;
+}
+
+.time-box{
+    border:1px solid #241019;
+
+    padding:18px;
+
+    background:
+        rgba(255,255,255,.015);
+}
+
+.time-box strong{
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:38px;
+
+    font-weight:500;
+
+    display:block;
+}
+
+.time-box span{
+    font-size:9px;
+
+    color:#777;
+
+    letter-spacing:2px;
+}
+
+
+/* =========================
+   GENERAL
+========================= */
+
+.section-title{
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:
+        clamp(45px,7vw,82px);
+
+    font-weight:500;
+
+    line-height:.9;
+
+    text-align:center;
+}
+
+.section-subtitle{
+    max-width:600px;
+
+    margin:
+        25px auto 0;
+
+    text-align:center;
+
+    color:#777;
+
+    line-height:1.8;
+
+    font-size:13px;
+}
+
+.hero-small{
+    text-align:center;
+
+    color:#8d0030;
+
+    font-size:10px;
+
+    letter-spacing:5px;
+
+    margin-bottom:22px;
+}
+
+
+/* =========================
+   LETTER
+========================= */
+
+.letter-wrap{
+    display:flex;
+    justify-content:center;
+
+    margin-top:65px;
+}
+
+.letter{
+    width:min(800px,94vw);
+
+    border:1px solid #32111d;
+
+    background:
+        linear-gradient(
+            145deg,
+            #0d0a0b,
+            #090909
+        );
+
+    padding:55px;
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.4);
+
+    cursor:pointer;
+
+    transition:.4s;
+}
+
+.letter:hover{
+    transform:translateY(-4px);
+
+    border-color:#65152f;
+}
+
+.letter-top{
+    display:flex;
+
+    justify-content:space-between;
+
+    color:#777;
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    margin-bottom:40px;
+}
+
+.letter h3{
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:34px;
+
+    font-weight:500;
+
+    margin-bottom:25px;
+}
+
+.letter p{
+    color:#aaa;
+
+    line-height:2;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:20px;
+}
+
+.letter-hint{
+    text-align:center;
+
+    color:#555;
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    margin-top:25px;
+}
+
+
+/* =========================
+   LETTER MODAL
+========================= */
+
+.letter-modal{
+    position:fixed;
+
+    inset:0;
+
+    background:
+        rgba(0,0,0,.93);
+
+    z-index:1900;
+
+    display:none;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:25px;
+}
+
+.letter-modal.show{
+    display:flex;
+}
+
+.letter-paper{
+    width:min(800px,94vw);
+
+    max-height:85vh;
+
+    overflow-y:auto;
+
+    background:
+        linear-gradient(
+            145deg,
+            #100b0d,
+            #080808
+        );
+
+    border:1px solid #4b1528;
+
+    padding:
+        clamp(30px,5vw,65px);
+
+    box-shadow:
+        0 30px 100px rgba(0,0,0,.8);
+
+    position:relative;
+}
+
+.letter-paper h2{
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:
+        clamp(35px,5vw,55px);
+
+    font-weight:500;
+
+    margin-bottom:30px;
+}
+
+.letter-paper p{
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:
+        clamp(18px,2.5vw,23px);
+
+    color:#ddd;
+
+    line-height:1.8;
+
+    white-space:pre-line;
+}
+
+.letter-close{
+    position:absolute;
+
+    top:15px;
+    right:18px;
+
+    width:42px;
+    height:42px;
+
+    border-radius:50%;
+
+    background:
+        rgba(0,0,0,.5);
+
+    border:1px solid #555;
+
+    color:#fff;
+
+    font-size:28px;
+
+    cursor:pointer;
+}
+
+
+/* =========================
+   REASONS
+========================= */
+
+.reasons{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:15px;
+
+    width:min(1000px,94vw);
+
+    margin:65px auto 0;
+}
+
+.reason{
+    min-height:180px;
+
+    padding:30px;
+
+    border:1px solid #231018;
+
+    background:#090909;
+}
+
+.reason-num{
+    color:#8d0030;
+
+    font-size:10px;
+
+    letter-spacing:3px;
+}
+
+.reason h3{
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:28px;
+
+    margin:
+        25px 0 12px;
+}
+
+.reason p{
+    font-size:12px;
+
+    line-height:1.8;
+
+    color:#777;
+}
+
+
+/* =========================
+   TIMELINE
+========================= */
+
+.timeline{
+    width:min(850px,94vw);
+
+    margin:70px auto 0;
+
+    border-left:
+        1px solid #4b1428;
+
+    padding-left:30px;
+}
+
+.timeline-item{
+    margin-bottom:50px;
+
+    position:relative;
+}
+
+.timeline-item::before{
+    content:"";
+
+    position:absolute;
+
+    width:8px;
+    height:8px;
+
+    border-radius:50%;
+
+    background:#8d0030;
+
+    left:-35px;
+    top:5px;
+
+    box-shadow:
+        0 0 20px #8d0030;
+}
+
+.timeline-date{
+    font-size:10px;
+
+    letter-spacing:3px;
+
+    color:#8d0030;
+
+    margin-bottom:10px;
+}
+
+.timeline h3{
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:28px;
+
+    margin-bottom:8px;
+}
+
+.timeline p{
+    font-size:12px;
+
+    color:#777;
+
+    line-height:1.8;
+}
+
+
+/* =========================
+   DISTANCE
+========================= */
+
+.distance{
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:50px;
+
+    margin-top:70px;
+
+    text-align:center;
+}
+
+.city{
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:34px;
+}
+
+.city small{
+    display:block;
+
+    color:#777;
+
+    font:
+        10px 'Montserrat',sans-serif;
+
+    letter-spacing:2px;
+
+    margin-top:5px;
+}
+
+.distance-line{
+    width:180px;
+
+    height:1px;
+
+    background:#4d1429;
+
+    position:relative;
+}
+
+.distance-heart{
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    background:#050505;
+
+    padding:8px;
+
+    color:#a20b3e;
+}
+
+
+/* =========================
+   MEMORIES
+========================= */
+
+.memories{
+    padding-top:140px;
+    padding-bottom:150px;
+}
+
+.memory-container{
+    width:min(850px,92vw);
+
+    margin:
+        80px auto 0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:105px;
+}
+
+.memory{
+    opacity:0;
+
+    transform:
+        translateY(70px);
+
+    transition:
+        1s ease;
+}
+
+.memory.show{
+    opacity:1;
+
+    transform:
+        translateY(0);
+}
+
+.memory-image{
+    width:100%;
+
+    display:block;
+
+    max-height:750px;
+
+    object-fit:contain;
+
+    border-radius:8px;
+
+    border:
+        1px solid #30101a;
+
+    background:#090909;
+
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.7),
+        0 0 40px rgba(120,0,35,.08);
+
+    transition:.5s;
+
+    cursor:zoom-in;
+}
+
+.memory-image:hover{
+    transform:scale(1.01);
+
+    box-shadow:
+        0 30px 90px rgba(0,0,0,.8),
+        0 0 55px rgba(120,0,35,.14);
+}
+
+.memory-info{
+    padding:
+        22px 5px 0;
+}
+
+.memory-number{
+    color:#8d0030;
+
+    font-size:11px;
+
+    letter-spacing:3px;
+
+    margin-bottom:10px;
+}
+
+.memory-caption{
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:25px;
+
+    line-height:1.4;
+
+    color:#ddd;
+}
+
+.memory-divider{
+    width:60px;
+
+    height:1px;
+
+    background:#720021;
+
+    margin-top:22px;
+}
+
+
+/* =========================
+   GIFT MESSAGE
+========================= */
+
+.gift-message{
+    width:min(850px,92vw);
+
+    margin:
+        65px auto 0;
+
+    padding:
+        60px 35px;
+
+    text-align:center;
+
+    border:
+        1px solid #32111d;
+
+    background:#090909;
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.35);
+}
+
+.gift-message p{
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:
+        clamp(25px,4vw,40px);
+
+    line-height:1.4;
+
+    color:#ddd;
+}
+
+
+/* =========================
+   SECRET
+========================= */
+
+.secret{
+    max-width:700px;
+
+    margin:auto;
+
+    text-align:center;
+}
+
+.secret-box{
+    margin:
+        50px auto 0;
+
+    border:
+        1px solid #29111a;
+
+    padding:40px;
+
+    background:#090909;
+}
+
+.secret-box input{
+    width:min(350px,90%);
+
+    background:#050505;
+
+    border:
+        1px solid #432033;
+
+    color:#fff;
+
+    padding:14px;
+
+    text-align:center;
+
+    outline:none;
+}
+
+.secret-result{
+    min-height:25px;
+
+    margin-top:20px;
+
+    color:#b72c5a;
+}
+
+
+/* =========================
+   FINAL
+========================= */
+
+.final{
+    text-align:center;
+
+    min-height:80vh;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+}
+
+.final-inner{
+    max-width:850px;
+}
+
+.final h2{
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:
+        clamp(55px,9vw,115px);
+
+    font-weight:500;
+
+    line-height:.85;
+}
+
+.final p{
+    color:#777;
+
+    margin-top:35px;
+
+    line-height:2;
+
+    font-size:13px;
+}
+
+.footer{
+    padding:30px;
+
+    text-align:center;
+
+    color:#333;
+
+    font-size:9px;
+
+    letter-spacing:3px;
+}
+
+
+/* =========================
+   HEART EFFECT
+========================= */
+
+.heart{
+    position:fixed;
+
+    pointer-events:none;
+
+    animation:
+        heartFloat 1.4s ease forwards;
+
+    z-index:3000;
+
+    color:#b30b43;
+}
+
+@keyframes heartFloat{
+
+    0%{
+        transform:
+            translate(-50%,-50%)
+            scale(.5);
+
+        opacity:1;
+    }
+
+    100%{
+        transform:
+            translate(-50%,-150px)
+            scale(1.5);
+
+        opacity:0;
+    }
+}
+
+
+/* =========================
+   IMAGE LIGHTBOX
+========================= */
+
+.image-modal{
+    position:fixed;
+
+    inset:0;
+
+    background:
+        rgba(0,0,0,.94);
+
+    z-index:2000;
+
+    display:none;
+
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
+
+    padding:35px;
+}
+
+.image-modal.show{
+    display:flex;
+}
+
+.image-modal img{
+    max-width:92vw;
+
+    max-height:90vh;
+
+    object-fit:contain;
+
+    cursor:grab;
+
+    touch-action:none;
+
+    user-select:none;
+
+    transform-origin:center center;
+
+    will-change:transform;
+}
+
+.image-modal img:active{
+    cursor:grabbing;
+}
+
+.image-close{
+    position:absolute;
+
+    top:18px;
+    right:22px;
+
+    background:
+        rgba(0,0,0,.55);
+
+    border:
+        1px solid #555;
+
+    color:#fff;
+
+    font-size:32px;
+
+    width:48px;
+    height:48px;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    z-index:2;
+}
+
+.modal-help{
+    position:absolute;
+
+    bottom:18px;
+    left:50%;
+
+    transform:
+        translateX(-50%);
+
+    color:#777;
+
+    font-size:10px;
+
+    letter-spacing:1px;
+
+    text-align:center;
+
+    width:90%;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:700px){
+
+    section{
+        padding:90px 18px;
+    }
+
+    .intro h1{
+        font-size:
+            clamp(36px,9vw,65px);
+    }
+
+    .timer{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .reasons{
+        grid-template-columns:1fr;
+    }
+
+    .distance{
+        flex-direction:column;
+
+        gap:40px;
+    }
+
+    .distance-line{
+        width:1px;
+
+        height:100px;
+    }
+
+    .letter{
+        padding:25px;
+    }
+
+    .letter p{
+        font-size:17px;
+    }
+
+    .memory-container{
+        gap:70px;
+
+        margin-top:60px;
+    }
+
+    .memory-caption{
+        font-size:21px;
+    }
+
+    .memory-image{
+        max-height:600px;
+    }
+
+    .music-name{
+        display:none;
+    }
+
+    .modal-help{
+        font-size:8px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<canvas id="particles"></canvas>
+
+
+<!-- =========================
+     INTRO
+========================= -->
+
+<div class="intro" id="intro">
+
+    <div class="intro-inner">
+
+        <div class="eyebrow">
+            SADECE SENİN İÇİN
+        </div>
+
+        <h1>
+            İYİ Kİ DOĞDUN<br>
+            İYİ Kİ VARSIN<br>
+            HAYATIMIN ANLAMII
+        </h1>
+
+        <p>
+            bir saniye... sana bir şey hazırladım
+        </p>
+
+        <button
+            class="enter-btn"
+            onclick="enterSite()">
+
+            GİR
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     NAV
+========================= -->
+
+<nav>
+
+    <div class="logo">
+        F.
+    </div>
+
+    <div class="nav-right">
+
+        <span
+            class="music-name"
+            id="musicName">
+
+            Müzik 2
+
+        </span>
+
+        <div class="music-controls">
+
+            <button
+                onclick="toggleMusic()"
+                id="playBtn">
+
+                ▶
+
+            </button>
+
+            <button
+                onclick="nextSong()">
+
+                ⏭
+
+            </button>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<main>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="date">
+            26.02.2026 — 03:55
+        </div>
+
+        <h2>
+            iyi ki varsın.
+        </h2>
+
+        <div class="hero-sub">
+            bazı başlangıçlar, bir ömür sürer.
+        </div>
+
+        <div class="timer">
+
+            <div class="time-box">
+                <strong id="days">0</strong>
+                <span>GÜN</span>
+            </div>
+
+            <div class="time-box">
+                <strong id="hours">0</strong>
+                <span>SAAT</span>
+            </div>
+
+            <div class="time-box">
+                <strong id="minutes">0</strong>
+                <span>DAKİKA</span>
+            </div>
+
+            <div class="time-box">
+                <strong id="seconds">0</strong>
+                <span>SANİYE</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     LETTER
+========================= -->
+
+<section>
+
+    <div class="hero-small">
+        SANA ANLATMAK İSTEDİKLERİM
+    </div>
+
+    <h2 class="section-title">
+        Sana anlatmak<br>
+        istediklerim.
+    </h2>
+
+    <div class="letter-wrap">
+
+        <div
+            class="letter"
+            onclick="openLetter()">
+
+            <div class="letter-top">
+
+                <span>
+                    FATMA'YA
+                </span>
+
+                <span>
+                    ÖZEL
+                </span>
+
+            </div>
+
+            <h3>
+                Bir mektup.
+            </h3>
+
+            <p>
+                Burada sana özellikle söylemek istediğim bazı şeyler var.
+            </p>
+
+            <div class="letter-hint">
+                AÇMAK İÇİN TIKLA
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     WHY
+========================= -->
+
+<section>
+
+    <div class="hero-small">
+        ÇÜNKÜ
+    </div>
+
+    <h2 class="section-title">
+        Çünkü sen<br>
+        sensin.
+    </h2>
+
+    <div class="reasons">
+
+        <div class="reason">
+
+            <div class="reason-num">
+                01
+            </div>
+
+            <h3>
+                Gülüşün.
+            </h3>
+
+            <p>
+                Ne kadar uzakta olursan ol,
+                bir şekilde günümü güzelleştirmeyi başarıyor.
+            </p>
+
+        </div>
+
+
+        <div class="reason">
+
+            <div class="reason-num">
+                02
+            </div>
+
+            <h3>
+                Varlığın.
+            </h3>
+
+            <p>
+                Bazen hiçbir şey söylemene bile gerek yok.
+                Sadece orada olman yetiyor.
+            </p>
+
+        </div>
+
+
+        <div class="reason">
+
+            <div class="reason-num">
+                03
+            </div>
+
+            <h3>
+                Sen.
+            </h3>
+
+            <p>
+                Başka bir açıklaması yok.
+                Seni sen olduğun için seviyorum.
+            </p>
+
+        </div>
+
+
+        <div class="reason">
+
+            <div class="reason-num">
+                04
+            </div>
+
+            <h3>
+                Anılarımız.
+            </h3>
+
+            <p>
+                Birlikte geçirdiğimiz her küçük an,
+                sonradan dönüp bakmak isteyeceğim bir hatıra.
+            </p>
+
+        </div>
+
+
+        <div class="reason">
+
+            <div class="reason-num">
+                05
+            </div>
+
+            <h3>
+                Sabır.
+            </h3>
+
+            <p>
+                Mesafeye rağmen hâlâ burada olmamızın
+                en güzel taraflarından biri.
+            </p>
+
+        </div>
+
+
+        <div class="reason">
+
+            <div class="reason-num">
+                06
+            </div>
+
+            <h3>
+                Gelecek.
+            </h3>
+
+            <p>
+                Bir gün bu ekranın yerine gerçekten
+                yan yana olacağımız günler gelecek.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     TIMELINE
+========================= -->
+
+<section>
+
+    <div class="hero-small">
+        BİZİM HİKÂYEMİZ
+    </div>
+
+    <h2 class="section-title">
+        Geçtiğimiz<br>
+        zaman.
+    </h2>
+
+    <div class="timeline">
+
+        <div class="timeline-item">
+
+            <div class="timeline-date">
+                26 ŞUBAT 2026
+            </div>
+
+            <h3>
+                Her şeyin başladığı gece.
+            </h3>
+
+            <p>
+                03:55. Bu tarihi ve saati unutmayalım diye buraya bıraktım.
+            </p>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-date">
+                İLK AYLAR
+            </div>
+
+            <h3>
+                Uzun konuşmalar.
+            </h3>
+
+            <p>
+                Saatlerin nasıl geçtiğini anlamadığımız,
+                konuşmayı bırakamadığımız günler.
+            </p>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-date">
+                SONRA
+            </div>
+
+            <h3>
+                Biriken anılar.
+            </h3>
+
+            <p>
+                Oyunlar, mesajlar, ekran görüntüleri,
+                kahkahalar ve küçük tartışmalar.
+            </p>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-date">
+                BUGÜN
+            </div>
+
+            <h3>
+                7 ay.
+            </h3>
+
+            <p>
+                Mesafe hâlâ var ama hikâyemiz hâlâ devam ediyor.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     DISTANCE
+========================= -->
+
+<section>
+
+    <div class="hero-small">
+        ARADA SADECE BİR MESAFE VAR
+    </div>
+
+    <h2 class="section-title">
+        İstanbul<br>
+        ↕<br>
+        Azerbaycan
+    </h2>
+
+    <div class="distance">
+
+        <div class="city">
+
+            İstanbul
+
+            <small>
+                TÜRKİYE
+            </small>
+
+        </div>
+
+
+        <div class="distance-line">
+
+            <div class="distance-heart">
+                ♥
+            </div>
+
+        </div>
+
+
+        <div class="city">
+
+            Azerbaycan
+
+            <small>
+                AZERBAYCAN
+            </small>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     MEMORIES
+========================= -->
+
+<section class="memories">
+
+    <div class="hero-small">
+        BİZDEN KARELER
+    </div>
+
+    <h2 class="section-title">
+        Birlikte<br>
+        biriktirdiklerimiz.
+    </h2>
+
+    <p class="section-subtitle">
+        Bazıları sadece bir ekran görüntüsü.
+        Bazılarıysa bizim için kocaman bir anı.
+    </p>
+
+    <div
+        id="memoryContainer"
+        class="memory-container">
+    </div>
+
+</section>
+
+
+<!-- =========================
+     GIFT MESSAGE
+========================= -->
+
+<section>
+
+    <div class="hero-small">
+        SANA BIRAKTIĞIM SON ŞEY
+    </div>
+
+    <h2 class="section-title">
+        Küçük bir<br>
+        mesaj.
+    </h2>
+
+    <div class="gift-message">
+
+        <p>
+            Umarım hediyem seni hayal kırıklığına
+            uğratmamıştır ve sabretmene değip
+            hoşuna gitmiştir sevgilim.
+            İyi ki sen. ❤️
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     FINAL
+========================= -->
+
+<section class="final">
+
+    <div class="final-inner">
+
+        <div class="hero-small">
+            SON
+        </div>
+
+        <h2>
+            İyi ki<br>
+            sen.
+        </h2>
+
+        <p>
+            Doğum günün kutlu olsun Fatma.<br>
+            Umarım bu küçük site,
+            yüzünde kocaman bir gülümseme bırakır. ❤️
+        </p>
+
+    </div>
+
+</section>
+
+
+<div class="footer">
+    F. — 2026
+</div>
+
+</main>
+
+
+<!-- =========================
+     LETTER MODAL
+========================= -->
+
+<div
+    class="letter-modal"
+    id="letterModal"
+    onclick="letterBackgroundClick(event)">
+
+    <div class="letter-paper">
+
+        <button
+            class="letter-close"
+            onclick="closeLetter()">
+
+            ×
+
+        </button>
+
+        <h2>
+            Sana söylemek istediklerim.
+        </h2>
+
+        <p>
+Bebeğim,
+
+Öncelikle doğum günün yine, yine, yine kutlu olsun. Seni çok seviyorum. Bu özel gün için en üzüldüğüm şey ne biliyor musun? Aradan geçen 7 aya rağmen yanında olamamam.
+
+Çok isterdim şu an yan yana olmamızı; seni öperek, sarılarak doğum gününü kutlamayı. Ama ne yazık ki elimden “şu an için” gelen tek şey bu.
+
+Elbet bir gün biz de yan yana, sarılarak doğum günlerimizi kutlayacağız. Ama şimdilik sabretmemiz gerekiyor.
+
+Fakat şunu bil ki tüm mesafelere, tüm zorluklara rağmen ben seni çok seviyorum ve sevmeye de devam edeceğim. ❤️
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     IMAGE MODAL
+========================= -->
+
+<div
+    class="image-modal"
+    id="imageModal"
+    onclick="modalBackgroundClick(event)">
+
+    <button
+        class="image-close"
+        onclick="closeImageModal()">
+
+        ×
+
+    </button>
+
+    <img
+        id="modalImage"
+        src=""
+        alt="">
+
+    <div class="modal-help">
+        TEKERLEK / İKİ PARMAK: ZOOM
+        •
+        SÜRÜKLE: HAREKET
+        •
+        DIŞARI TIKLA: KAPAT
+    </div>
+
+</div>
+
+
+<script>
+
+
+/* =========================
+   MUSIC
+========================= */
+
+const songs = [
+
+    {
+        name:"Müzik 2",
+        src:"music/2.mp3"
+    },
+
+    {
+        name:"Müzik 1",
+        src:"music/1.mp3"
+    }
+
+];
+
+let currentSong = 0;
+
+let audio =
+    new Audio(
+        songs[currentSong].src
+    );
+
+audio.loop = true;
+
+audio.volume = .55;
+
+let playing = false;
+
+
+function toggleMusic(){
+
+    if(playing){
+
+        audio.pause();
+
+        playing = false;
+
+        document
+            .getElementById("playBtn")
+            .textContent = "▶";
+
+    }
+
+    else{
+
+        audio
+            .play()
+            .then(()=>{
+
+                playing = true;
+
+                document
+                    .getElementById("playBtn")
+                    .textContent = "Ⅱ";
+
+            })
+            .catch(()=>{});
+
+    }
+
+}
+
+
+function nextSong(){
+
+    const wasPlaying = playing;
+
+    audio.pause();
+
+    currentSong =
+        (currentSong + 1)
+        % songs.length;
+
+    audio =
+        new Audio(
+            songs[currentSong].src
+        );
+
+    audio.loop = true;
+
+    audio.volume = .55;
+
+    document
+        .getElementById("musicName")
+        .textContent =
+            songs[currentSong].name;
+
+    if(wasPlaying){
+
+        audio
+            .play()
+            .then(()=>{
+
+                playing = true;
+
+                document
+                    .getElementById("playBtn")
+                    .textContent = "Ⅱ";
+
+            })
+            .catch(()=>{});
+
+    }
+
+}
+
+
+/* =========================
+   INTRO
+========================= */
+
+function enterSite(){
+
+    document
+        .getElementById("intro")
+        .classList.add("hide");
+
+    if(!playing){
+
+        toggleMusic();
+
+    }
+
+}
+
+
+/* =========================
+   TIMER
+========================= */
+
+const startDate =
+    new Date(
+        "2026-02-26T03:55:00"
+    );
+
+
+function updateTimer(){
+
+    let diff =
+        Math.max(
+            0,
+            Date.now()
+            -
+            startDate.getTime()
+        );
+
+    let seconds =
+        Math.floor(
+            diff / 1000
+        );
+
+    let days =
+        Math.floor(
+            seconds / 86400
+        );
+
+    seconds %= 86400;
+
+    let hours =
+        Math.floor(
+            seconds / 3600
+        );
+
+    seconds %= 3600;
+
+    let minutes =
+        Math.floor(
+            seconds / 60
+        );
+
+    seconds %= 60;
+
+
+    document
+        .getElementById("days")
+        .textContent =
+            days;
+
+    document
+        .getElementById("hours")
+        .textContent =
+            hours;
+
+    document
+        .getElementById("minutes")
+        .textContent =
+            minutes;
+
+    document
+        .getElementById("seconds")
+        .textContent =
+            seconds;
+
+}
+
+setInterval(
+    updateTimer,
+    1000
+);
+
+updateTimer();
+
+
+/* =========================
+   LETTER
+========================= */
+
+function openLetter(){
+
+    document
+        .getElementById("letterModal")
+        .classList.add("show");
+
+    document
+        .body
+        .classList.add("no-scroll");
+
+}
+
+
+function closeLetter(){
+
+    document
+        .getElementById("letterModal")
+        .classList.remove("show");
+
+    document
+        .body
+        .classList.remove("no-scroll");
+
+}
+
+
+function letterBackgroundClick(event){
+
+    if(
+        event.target ===
+        document.getElementById("letterModal")
+    ){
+
+        closeLetter();
+
+    }
+
+}
+
+
+/* =========================
+   95 MEMORIES
+========================= */
+
+const memoryCaptions = [
+
+"evet twinimle burada sevgili olduktan 4 gün sonra bana bunu sormuştu ve evet severdim aşkım 🥹",
+"twinime taptım evt doğru TAPTIM hehe",
+"BURADA TWINIM HENÜZ BENDE İKİZİM DİYE KAYITLI VE 2 SAATTEN FAZLA KONUŞTUK HAVALIYDI 6 MARTTI",
+"Ahmet sevgilime karşı ne kadar hanımcı olduğumu story yapmıştı",
+"evet yine sen ben Ahmet ve Plato deneyimi ahmet önemli çar ya bize yardımcı oldu baya",
+"ıııı şey... sana domaldım sanırım..",
+"evet herhangi bi insta araması 11 Mart falan (herhangi bi adam)",
+"IG'de 5+ saat aramadaydıkkk ohaaa",
+"HER ŞEYİM İÇİN ATIYOR BU YÜREKKKKK",
+"güzel gözlerini duvar kağıdım yapmıştım her telefonu açtığımda gözlerim parlıyodu",
+"AKİNATÖRE SENİ SORMUŞTUM BİLMİŞTİ",
+"evet herhangi bi WP araması 20 Mart, 1 ay sonra falan hihi",
+"ABI BUNDA NE KADAR MUTLU OLDUĞUMU BİLEMEZSİN AŞKIMMM BENİMMM",
+"1 saatte ablamla menemen yaptım diye zorbalık gördüğüm zamanlar.. HGASDFJUDFAHG",
+"AŞKIM IG'YE SINİRLENİP ENGELLEMİŞTİN SEN YİCEM DFHIOJSADFHIDASDAFH",
+"notlarımızın güzelliğiiii 27 Marttı hihi",
+"ŞEY UTANDM UTANDK ÖLDK",
+"internetim bizi kıskandı aşkım bence",
+"evett geceleri attığın paragraflar aşkım bunlar benim için çok değerli teşekkür ederim aşığımsana",
+"AY",
+"sevgilimin gotik dönemleri (her şekilde mükemmel bir kadın)",
+"aşkım şey çok tatlıydın ss aldım belki haberin bile yoktur ay",
+"AŞKIM UTANIYORUM YAAA olr",
+"HAVALI NOTLARIMIZ HERKES KISKANIYO BİZİ AŞKM GERÇEKTEN 18 NİSAN hihi",
+"REKOR 17 SAAT KONUŞMAMIZ AAAAAAAAAAA YASASINNNNNN",
+"ahlaksız bi teklif aldım ve ahlaksızca kabul ettim",
+"KENDİMLE GURUR DUYMUŞTUM ay ve seni yerim",
+"ay",
+"aşkım burada çocuk bakma oyunu yüklemiştik sonra çok paralıydı silmiştik ama anı anıdır",
+"BURDA Bİ KIZ BİZİM CPLERİMİZİN MÜKEMMELLİĞİNDEN BAHSEDİYODU DENJİ REZE BİZ",
+"OHAA STARDEW VALLEY ZAMANI BİRAAAZZZ BURDA BEN OTURUYOM SEN ÇALIŞIYON",
+"burada da yan yana oturuyoruz sevgilimle hihihi",
+"şimdi de yan yana poz veriyoz çimende",
+"VEE OHAA DİBİNE VURUYORUZZZ DSOIGHSDFIOHDSFÜHG ayy",
+"ağacın altında bankta overthinklemece twinle",
+"oha piknik yaparken yağmura yakalandık",
+"Bİ ANDA İSTİKLAL MARŞI ÇALDI YAĞMURDA HAZIR OL'A GEÇTİK AMK GIHGIHGASDGHAIS",
+"ısınmak için kömür atıoz aşkım fakiriz sanırım",
+"BİRLİKTE UYUYORUZZZZZZZ YASASINNNNNN İLK UYUYUŞUMUZZZZ DOYY",
+"yürüyüş yapmak kilo vermek yata yata obez olcaz aşkım",
+"YATAKTA UYUYORUZ AŞKIM FANFİNİFON 😂",
+"uyurken sana arkadan sarılmışım ohaa güzelımmm benımm",
+"10 SAAT KONUŞMAKKKKKKKKKKK AAAAAAAAAAAAA",
+"gece gece acıkmışız yemek yemeye mutfağa koşuyoz aşkım obez tayfa",
+"OHAAA 12 SAAT AŞKM BİZ EVLENMELİYİZ DİMİ",
+"AŞKIM BALIK TUTUYORUZ BURDA DA ÇOK EĞLENCELİYDİ",
+"AŞKIM BUNU HATIRLIYON MU YEMEK SÖYLİCEKTİM DOYDOY PİZZA VARDI SAGJUBSDFGHGAGAPDSGH",
+"yine arkadan sarılarak uyumak hihihihi bu biziz gerçekten",
+"göz teması kurarak uyuyoz gözlerim gözlerindeydııııııı IJASFASIOHGSOIGHAS",
+"gece gece ritüel mi yapıyoduk tüm köy toplanmış aq",
+"YAVRUMMMMM BURDA EVLENİYODUKKKK YERİMMM OHAAAAA KARICIMMM",
+"oha bu da başka odada",
+"AŞKIM BURDA BEBEK BEKLİYON ASGHADFGHAHGA YASASINNNN",
+"VE GECEEEEEE KIZZZZ ÇOCUĞUMUZUUU DOĞURUYOSUNNNNNNNNNN",
+"AŞKIM ÇOCUK BEŞİKTE BİZ HAVALI ŞAPKALARIMIZLA DANS EDİYOZ UYEUYE",
+"aşkım burada da çok tatlı bi anımız var ay",
+"CEHENNEME BİLE BİRLİKTE GİDİYORUZ GERÇEK AŞK İŞTE BUDURRR",
+"oha IG 8 saat arama 3 Mayıs uyeuye sevıyormsenı",
+"GÜNAYDIN MESAJLARINLA UYANMAK TÜM GÜNÜMÜ GÜZELLEŞTİRİYO ÇİÇEĞİMM",
+"sorgulama aşkım",
+"aşkım hamile olmuşsun oha göbüşünü yerım",
+"BİRBİRİMİZİ YİYİP OBEZ OLUYOZ AŞKIM BİZ ÇOK OBEZİZ",
+"oha ufak tartışmalarımız da olmuş",
+"eski hesabında öne çıkanlarında EV yazıp beni koymuştun sana aşığım aşık OFOF",
+"bu benim hayalim..",
+"utandım utandım utandım",
+"ben bunu niye ss aldım amk",
+"ufak tartışmalar olmadan ilişki olmaz dermiş atalarımız aşkım muah",
+"aşkım ülkemı niye zorbaladın SIGJDSAIFOGSSDHFIODS",
+"Fatma'yı çok seviyorum",
+"GERÇEK",
+"oy erken mi uyuyacan cen ben sana kuyban oluyum",
+"EVET GEÇ UYUMAK ZARARLIDIR KAMU SPOTU AŞKIM!",
+"çok fazla detay var hem sen Müslüman oluyon hem de WP'yi bozuyon",
+"ne aşkım neyi yedin",
+"Enes'in eski manit aşkım burada çöpçatanlık yapıyoz hihi",
+"hakkını verdim",
+"birlikte takılıyoz ohh",
+"SİKORTA SAJLGHBSASDJGBASDJKGBADSKF.J.GALkgJASdlgASDGH",
+"bu videonun kapağı biz",
+"YEYEYEYEEYE SAATİMİZ",
+"şey",
+"bebiş sen aşkım yerim çok tatlıssss",
+"ısırırımm seni",
+"NE KADAR AŞK DOLU Bİ İLİŞKİ",
+"evet ben sensiz yapamıyom",
+"aşkım burada ne yaşanmış acaba 2 Ağustos",
+"7 SAAT WP AAAAAAAAAAAAAAAA",
+"AHMET ADAMDIR AŞKIM ÇÜNKÜ BİZE YARDIM ETTİ",
+"Azerice öğrenıyorum gün 1",
+"Azerice öğrenıyorum gün 2",
+"herhangi bi ss burda da aşkım",
+"BURDAKİ AMAÇ NEYDİ GÖRÜNTÜLÜ",
+"kolyenı yerım",
+"TİPE BAK YİCEMMMM"
+
+];
+
+
+const memoryContainer =
+    document.getElementById(
+        "memoryContainer"
+    );
+
+
+memoryCaptions.forEach(
+    (caption,index)=>{
+
+        const number =
+            index + 1;
+
+        const article =
+            document.createElement(
+                "article"
+            );
+
+        article.className =
+            "memory";
+
+        article.innerHTML = `
+
+            <img
+                class="memory-image"
+                src="photos/dogumgunu/${number}.jpg"
+                alt="Anı ${number}"
+                loading="lazy">
+
+            <div class="memory-info">
+
+                <div class="memory-number">
+                    ${String(number).padStart(2,"0")} / 95
+                </div>
+
+                <div class="memory-caption">
+                    ${caption}
+                </div>
+
+                <div class="memory-divider"></div>
+
+            </div>
+
+        `;
+
+        memoryContainer.appendChild(
+            article
+        );
+
+    }
+);
+
+
+/* =========================
+   MEMORY ANIMATION
+========================= */
+
+const observer =
+    new IntersectionObserver(
+        entries=>{
+
+            entries.forEach(
+                entry=>{
+
+                    if(
+                        entry.isIntersecting
+                    ){
+
+                        entry.target
+                            .classList
+                            .add("show");
+
+                    }
+
+                }
+            );
+
+        },
+        {
+            threshold:.12
+        }
+    );
+
+
+document
+    .querySelectorAll(".memory")
+    .forEach(
+        el=>observer.observe(el)
+    );
+
+
+
+/* =========================
+   IMAGE LIGHTBOX
+========================= */
+
+const modal =
+    document.getElementById(
+        "imageModal"
+    );
+
+const modalImage =
+    document.getElementById(
+        "modalImage"
+    );
+
+
+let scale = 1;
+
+let panX = 0;
+let panY = 0;
+
+let pointers =
+    new Map();
+
+let pinchStartDistance = 0;
+let pinchStartScale = 1;
+
+
+function applyTransform(){
+
+    modalImage.style.transform =
+        `translate(${panX}px, ${panY}px) scale(${scale})`;
+
+}
+
+
+function openImageModal(src){
+
+    modalImage.src = src;
+
+    scale = 1;
+
+    panX = 0;
+    panY = 0;
+
+    applyTransform();
+
+    modal.classList.add("show");
+
+    document
+        .body
+        .classList
+        .add("no-scroll");
+
+}
+
+
+function closeImageModal(){
+
+    modal.classList.remove("show");
+
+    document
+        .body
+        .classList
+        .remove("no-scroll");
+
+    modalImage.src = "";
+
+    pointers.clear();
+
+}
+
+
+function modalBackgroundClick(event){
+
+    if(
+        event.target === modal
+    ){
+
+        closeImageModal();
+
+    }
+
+}
+
+
+document.addEventListener(
+    "click",
+    event=>{
+
+        const img =
+            event.target.closest(
+                ".memory-image"
+            );
+
+        if(img){
+
+            openImageModal(
+                img.src
+            );
+
+        }
+
+    }
+);
+
+
+/* Mouse wheel zoom */
+
+modalImage.addEventListener(
+    "wheel",
+    event=>{
+
+        event.preventDefault();
+
+        scale =
+            Math.min(
+                5,
+                Math.max(
+                    1,
+                    scale +
+                    (
+                        event.deltaY < 0
+                        ? .25
+                        : -.25
+                    )
+                )
+            );
+
+        if(scale === 1){
+
+            panX = 0;
+            panY = 0;
+
+        }
+
+        applyTransform();
+
+    },
+    {
+        passive:false
+    }
+);
+
+
+/* Touch / pointer zoom */
+
+modalImage.addEventListener(
+    "pointerdown",
+    event=>{
+
+        modalImage.setPointerCapture(
+            event.pointerId
+        );
+
+        pointers.set(
+            event.pointerId,
+            {
+                x:event.clientX,
+                y:event.clientY
+            }
+        );
+
+
+        if(
+            pointers.size === 2
+        ){
+
+            const points =
+                [...pointers.values()];
+
+            pinchStartDistance =
+                Math.hypot(
+                    points[0].x - points[1].x,
+                    points[0].y - points[1].y
+                );
+
+            pinchStartScale =
+                scale;
+
+        }
+
+    }
+);
+
+
+modalImage.addEventListener(
+    "pointermove",
+    event=>{
+
+        if(
+            !pointers.has(
+                event.pointerId
+            )
+        ){
+
+            return;
+
+        }
+
+
+        pointers.set(
+            event.pointerId,
+            {
+                x:event.clientX,
+                y:event.clientY
+            }
+        );
+
+
+        if(
+            pointers.size === 2
+        ){
+
+            const points =
+                [...pointers.values()];
+
+            const distance =
+                Math.hypot(
+                    points[0].x - points[1].x,
+                    points[0].y - points[1].y
+                );
+
+
+            if(
+                pinchStartDistance
+            ){
+
+                scale =
+                    Math.min(
+                        5,
+                        Math.max(
+                            1,
+                            pinchStartScale *
+                            (
+                                distance /
+                                pinchStartDistance
+                            )
+                        )
+                    );
+
+            }
+
+
+            if(scale === 1){
+
+                panX = 0;
+                panY = 0;
+
+            }
+
+            applyTransform();
+
+        }
+
+    }
+);
+
+
+function clearPointer(event){
+
+    pointers.delete(
+        event.pointerId
+    );
+
+    if(
+        pointers.size < 2
+    ){
+
+        pinchStartDistance = 0;
+
+    }
+
+}
+
+
+modalImage.addEventListener(
+    "pointerup",
+    clearPointer
+);
+
+modalImage.addEventListener(
+    "pointercancel",
+    clearPointer
+);
+
+
+/* Double click zoom */
+
+modalImage.addEventListener(
+    "dblclick",
+    ()=>{
+
+        scale =
+            scale === 1
+            ? 2.5
+            : 1;
+
+        if(scale === 1){
+
+            panX = 0;
+            panY = 0;
+
+        }
+
+        applyTransform();
+
+    }
+);
+
+
+/* ESC */
+
+document.addEventListener(
+    "keydown",
+    event=>{
+
+        if(
+            event.key === "Escape" &&
+            modal.classList.contains("show")
+        ){
+
+            closeImageModal();
+
+        }
+
+        if(
+            event.key === "Escape" &&
+            document
+                .getElementById("letterModal")
+                .classList
+                .contains("show")
+        ){
+
+            closeLetter();
+
+        }
+
+    }
+);
+
+
+/* =========================
+   HEART CLICK EFFECT
+========================= */
+
+document.addEventListener(
+    "click",
+    event=>{
+
+        if(
+            !event.target.closest(
+                "button,input,.letter,.memory-image"
+            )
+        ){
+
+            createHeart(
+                event.clientX,
+                event.clientY
+            );
+
+        }
+
+    }
+);
+
+
+function createHeart(x,y){
+
+    const heart =
+        document.createElement(
+            "div"
+        );
+
+    heart.className =
+        "heart";
+
+    heart.textContent =
+        "♥";
+
+    heart.style.left =
+        x + "px";
+
+    heart.style.top =
+        y + "px";
+
+    heart.style.fontSize =
+        (
+            12 +
+            Math.random() * 12
+        ) + "px";
+
+    document.body.appendChild(
+        heart
+    );
+
+    setTimeout(
+        ()=>heart.remove(),
+        1400
+    );
+
+}
+
+
+/* =========================
+   BACKGROUND PARTICLES
+========================= */
+
+const canvas =
+    document.getElementById(
+        "particles"
+    );
+
+const ctx =
+    canvas.getContext("2d");
+
+
+let particles = [];
+
+
+function resizeCanvas(){
+
+    canvas.width =
+        innerWidth;
+
+    canvas.height =
+        innerHeight;
+
+}
+
+
+function makeParticles(){
+
+    particles =
+        Array.from(
+            {
+                length:70
+            },
+            ()=>({
+
+                x:
+                    Math.random()
+                    *
+                    innerWidth,
+
+                y:
+                    Math.random()
+                    *
+                    innerHeight,
+
+                r:
+                    Math.random()
+                    *
+                    1.6
+                    +
+                    .3,
+
+                v:
+                    Math.random()
+                    *
+                    .25
+                    +
+                    .05,
+
+                a:
+                    Math.random()
+                    *
+                    .5
+                    +
+                    .1
+
+            })
+        );
+
+}
+
+
+function drawParticles(){
+
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+
+    particles.forEach(
+        particle=>{
+
+            particle.y -=
+                particle.v;
+
+
+            if(
+                particle.y < 0
+            ){
+
+                particle.y =
+                    canvas.height;
+
+            }
+
+
+            ctx.beginPath();
+
+            ctx.arc(
+                particle.x,
+                particle.y,
+                particle.r,
+                0,
+                Math.PI * 2
+            );
+
+
+            ctx.fillStyle =
+                `rgba(
+                    180,
+                    20,
+                    70,
+                    ${particle.a}
+                )`;
+
+            ctx.fill();
+
+        }
+    );
+
+
+    requestAnimationFrame(
+        drawParticles
+    );
+
+}
+
+
+addEventListener(
+    "resize",
+    ()=>{
+
+        resizeCanvas();
+
+        makeParticles();
+
+    }
+);
+
+
+resizeCanvas();
+
+makeParticles();
+
+drawParticles();
+
+</script>
+
+</body>
+</html>
