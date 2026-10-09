@@ -3275,6 +3275,258 @@ makeParticles();
 drawParticles();
 
 </script>
+<!-- FATMA'NIN DOĞUM GÜNÜ PASTASI -->
+<style>
+#birthdayCake{
+    padding:80px 20px 100px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+}
+#birthdayCake .cake-label{
+    color:#a20b3e;
+    font-size:10px;
+    letter-spacing:5px;
+    margin-bottom:18px;
+}
+#birthdayCake h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(42px,8vw,75px);
+    font-weight:500;
+    margin-bottom:15px;
+}
+#birthdayCake .cake-subtitle{
+    color:#888;
+    font-size:13px;
+    line-height:1.8;
+    margin-bottom:55px;
+}
+.cake-stage{
+    width:min(390px,90vw);
+    margin:0 auto;
+    position:relative;
+    padding-top:55px;
+}
+.cake-candles{
+    display:flex;
+    justify-content:center;
+    gap:23px;
+    height:85px;
+    align-items:flex-end;
+    position:relative;
+    z-index:3;
+}
+.candle{
+    position:relative;
+    width:9px;
+    height:55px;
+    border-radius:4px 4px 1px 1px;
+    background:repeating-linear-gradient(
+        135deg,#f5c6d4 0 5px,#8d0030 5px 10px
+    );
+    box-shadow:0 0 12px #8d003055;
+}
+.flame{
+    position:absolute;
+    width:15px;
+    height:23px;
+    left:50%;
+    top:-25px;
+    transform:translateX(-50%);
+    border-radius:50% 50% 45% 45%;
+    background:radial-gradient(
+        ellipse at 50% 70%,#fff7bd 0 15%,#ffb52e 45%,#f04421 75%
+    );
+    filter:drop-shadow(0 0 8px #ff8c36);
+    animation:flameDance .16s infinite alternate;
+    transform-origin:bottom;
+}
+@keyframes flameDance{
+    from{rotate:-5deg;scale:.95 1.04}
+    to{rotate:5deg;scale:1.05 .94}
+}
+.candle.out .flame{
+    display:none;
+}
+.cake-tier{
+    margin:0 auto;
+    position:relative;
+    border:1px solid #a43b5e;
+    background:linear-gradient(110deg,#390b1c,#75152f 45%,#4b0a20);
+    box-shadow:inset 0 8px 15px #ffffff0c,0 15px 30px #0008;
+}
+.cake-tier::before{
+    content:"";
+    position:absolute;
+    left:0;right:0;top:0;
+    height:12px;
+    background:linear-gradient(90deg,#d98da4,#f3c3cf,#b64b70);
+    border-radius:50%;
+}
+.cake-tier.top{
+    width:48%;
+    height:65px;
+    border-radius:12px 12px 8px 8px;
+}
+.cake-tier.middle{
+    width:72%;
+    height:75px;
+    border-radius:12px 12px 8px 8px;
+}
+.cake-tier.bottom{
+    width:100%;
+    height:85px;
+    border-radius:13px 13px 8px 8px;
+}
+.cake-plate{
+    width:110%;
+    height:12px;
+    margin-left:-5%;
+    border-radius:50%;
+    background:linear-gradient(#d8b4bf,#80505d,#d6a9b7);
+    box-shadow:0 8px 18px #0008;
+}
+.cake-decoration{
+    position:absolute;
+    inset:20px 0 0;
+    display:flex;
+    justify-content:space-evenly;
+    color:#f4b6c9;
+    font-size:17px;
+}
+#blowCandles{
+    margin-top:38px;
+    border:1px solid #78203e;
+    background:linear-gradient(135deg,#67112f,#300815);
+    color:#fff;
+    padding:15px 28px;
+    letter-spacing:1px;
+    cursor:pointer;
+    transition:.3s;
+}
+#blowCandles:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 25px #8d003055;
+}
+#blowCandles:disabled{
+    opacity:.6;
+    cursor:default;
+}
+#cakeWish{
+    min-height:45px;
+    margin:25px auto 0;
+    max-width:500px;
+    color:#e5a1b8;
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(23px,4vw,32px);
+    line-height:1.5;
+    opacity:0;
+    transform:translateY(10px);
+    transition:.8s;
+}
+#cakeWish.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+.cake-heart{
+    position:fixed;
+    z-index:4000;
+    pointer-events:none;
+    animation:cakeHeartFloat 2.5s ease-out forwards;
+}
+@keyframes cakeHeartFloat{
+    0%{transform:translateY(0) scale(.5) rotate(0);opacity:0}
+    15%{opacity:1}
+    100%{transform:translateY(-220px) scale(1.4) rotate(35deg);opacity:0}
+}
+#birthdayCake .cake-signature{
+    color:#555;
+    font-size:10px;
+    letter-spacing:3px;
+    margin-top:45px;
+}
+@media(max-width:500px){
+    #birthdayCake{padding:65px 15px 80px}
+    .cake-candles{gap:17px}
+    .cake-stage{width:min(330px,88vw)}
+}
+</style>
 
+<section id="birthdayCake">
+    <div class="cake-label">BUGÜN SENİN GÜNÜN</div>
+    <h2>Bir dilek tut,<br>sevgilim.</h2>
+    <p class="cake-subtitle">
+        Keşke şu an yanında olup bu mumları seninle birlikte üfleyebilseydim.<br>
+        Şimdilik bu küçük pasta benden sana. ❤️
+    </p>
+
+    <div class="cake-stage">
+        <div class="cake-candles" id="cakeCandles">
+            <div class="candle"><span class="flame"></span></div>
+            <div class="candle"><span class="flame"></span></div>
+            <div class="candle"><span class="flame"></span></div>
+            <div class="candle"><span class="flame"></span></div>
+            <div class="candle"><span class="flame"></span></div>
+        </div>
+
+        <div class="cake-tier top">
+            <div class="cake-decoration"><span>♥</span><span>✦</span><span>♥</span></div>
+        </div>
+        <div class="cake-tier middle">
+            <div class="cake-decoration"><span>✦</span><span>♥</span><span>✦</span></div>
+        </div>
+        <div class="cake-tier bottom">
+            <div class="cake-decoration"><span>♥</span><span>✦</span><span>♥</span><span>✦</span></div>
+        </div>
+        <div class="cake-plate"></div>
+    </div>
+
+    <button id="blowCandles">♡ Mumları üfle ♡</button>
+    <div id="cakeWish" aria-live="polite"></div>
+    <div class="cake-signature">SENİN İÇİN, FATMA. ❤️</div>
+</section>
+
+<script>
+(function(){
+    const button = document.getElementById("blowCandles");
+    const candles = [...document.querySelectorAll("#cakeCandles .candle")];
+    const wish = document.getElementById("cakeWish");
+    let finished = false;
+
+    button.addEventListener("click", function(){
+        if(finished) return;
+        finished = true;
+        button.disabled = true;
+        button.textContent = "Dileğin kalbinde saklı kalsın ❤️";
+
+        candles.forEach((candle, index) => {
+            setTimeout(() => {
+                candle.classList.add("out");
+            }, index * 350);
+        });
+
+        setTimeout(() => {
+            wish.textContent =
+                "Bir dilek tut sevgilim… ❤️ Uzakta olsam da kalbim senin yanında. İyi ki doğdun, iyi ki varsın.";
+            wish.classList.add("visible");
+
+            const symbols = ["♥","♡","✦","✨","❤"];
+            for(let i = 0; i < 32; i++){
+                setTimeout(() => {
+                    const heart = document.createElement("span");
+                    heart.className = "cake-heart";
+                    heart.textContent = symbols[Math.floor(Math.random()*symbols.length)];
+                    heart.style.left = (5 + Math.random()*90) + "vw";
+                    heart.style.top = (45 + Math.random()*40) + "vh";
+                    heart.style.fontSize = (14 + Math.random()*24) + "px";
+                    heart.style.color = Math.random() > .5 ? "#e85b8a" : "#f3c3cf";
+                    document.body.appendChild(heart);
+                    setTimeout(() => heart.remove(), 2600);
+                }, i * 65);
+            }
+        }, candles.length * 350 + 300);
+    });
+})();
+</script>
 </body>
 </html>
